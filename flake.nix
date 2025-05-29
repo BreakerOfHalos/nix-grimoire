@@ -116,12 +116,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        systems.follows = "systems";
-      };
-    };
-
     systems = {
       type = "github";
       owner = "nix-systems";
