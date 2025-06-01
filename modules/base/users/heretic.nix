@@ -9,6 +9,7 @@ in
 {
   config = mkIf (elem "heretic" config.grimoire.system.users) {
     users.users.heretic.openssh.authorizedKeys.keys = [
+      # TODO: Add ssh key
       "ssh-ed25519 "
     ];
   };

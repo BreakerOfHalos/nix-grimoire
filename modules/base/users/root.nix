@@ -4,6 +4,7 @@
     initialPassword = "changeme";
 
     openssh.authorizedKeys.keys = [
+      # TODO: Add ssh key
       "ssh-ed25519 "
     ];
   };
