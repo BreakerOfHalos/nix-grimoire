@@ -117,26 +117,6 @@
         "type": "github"
       }
     },
-    "home-manager": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1748489961,
-        "narHash": "sha256-uGnudxMoQi2c8rpPoHXuQSm80NBqlOiNF4xdT3hhzLM=",
-        "owner": "nix-community",
-        "repo": "home-manager",
-        "rev": "95c988cf08e9a5a8fe7cc275d5e3f24e9e87bd51",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "home-manager",
-        "type": "github"
-      }
-    },
     "lanzaboote": {
       "inputs": {
         "crane": "crane",
@@ -184,6 +164,21 @@
       "original": {
         "type": "tarball",
         "url": "https://git.lix.systems/lix-project/lix/archive/main.tar.gz"
+      }
+    },
+    "nix-maid": {
+      "locked": {
+        "lastModified": 1747929314,
+        "narHash": "sha256-EfJNRIYBB4JEeAOSp4l5O0EhcBTmEwu5moqr07lrfYs=",
+        "owner": "viperML",
+        "repo": "nix-maid",
+        "rev": "7f928dc4907fecee9cad02776c0105b864dff72c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "viperML",
+        "repo": "nix-maid",
+        "type": "github"
       }
     },
     "nixos-wsl": {
@@ -262,14 +257,15 @@
         "catppuccin": "catppuccin",
         "easy-hosts": "easy-hosts",
         "flake-parts": "flake-parts",
-        "home-manager": "home-manager",
         "lanzaboote": "lanzaboote",
         "lix": "lix",
+        "nix-maid": "nix-maid",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs",
         "noshell": "noshell",
         "systems": "systems",
-        "treefmt-nix": "treefmt-nix"
+        "treefmt-nix": "treefmt-nix",
+        "wrapper-manager": "wrapper-manager"
       }
     },
     "rust-overlay": {
@@ -325,6 +321,26 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "wrapper-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1747562021,
+        "narHash": "sha256-XfF+5zjoWbAcAiGNb++og6yDGJRwWYpADr9P6WuieQA=",
+        "owner": "viperML",
+        "repo": "wrapper-manager",
+        "rev": "f2b0bec5140403cf24cae96f6764d97b5d59b0e2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "viperML",
+        "repo": "wrapper-manager",
         "type": "github"
       }
     }
