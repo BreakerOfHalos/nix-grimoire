@@ -19,11 +19,6 @@
     {
       packages = {
         lix = callPackage ./lix/package.nix { inherit inputs' inputs; };
-        docs = callPackage ./docs/package.nix {
-          inherit (inputs) self;
-          inherit (self'.packages) libdoc;
-        };
-        libdoc = callPackage ./docs/lib.nix { inherit (inputs) self; };
         conjuration = callPackage ./conjuration/package.nix { nix = self'.packages.lix; };
       };
     };
