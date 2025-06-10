@@ -1,19 +1,9 @@
-{
-  pkgs,
-  self,
-  config,
-  ...
-}:
-let
-  inherit (self.lib) anyHome;
-
-  qh = anyHome config;
-in
+{pkgs, ...}:
 {
   # home-manager is so strange and needs these declared multiple times
   programs = {
-    fish.enable;
-    zsh.enable;
+    fish.enable = true;
+    zsh.enable = true;
   };
 
   grimoire.packages = {
