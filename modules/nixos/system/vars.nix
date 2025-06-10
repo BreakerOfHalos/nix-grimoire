@@ -5,15 +5,14 @@
   ...
 }:
 let
-  inherit (lib) mkOption;
   inherit (lib.types) str;
 
   sys = config.grimoire.system;
 in
 {
-  options.grimoire.environment.flakePath = mkOption {
+  options.grimoire.environment.flakePath = { 
     type = str;
-    default = /home;
+    default = "/home/.config/flake";
     description = "The path to the configuration";
   };
 
