@@ -46,16 +46,14 @@ in
     };
 
     # We love legacy support (for now)
-    nixPath =
-      if (_class == "nixos") then
-        attrValues (mapAttrs (k: v: "${k}=flake:${v.outPath}") flakeInputs)
-      else
-        mkForce (mapAttrs (_: v: v.outPath) flakeInputs);
+    nixPath = attrValues (mapAttrs (k: v: "${k}=flake:${v.outPath}") flakeInputs);
 
     # set up garbage collection to run <on the time frame specified per system>, and removing packages after 3 days
     gc = {
       automatic = true;
       options = "--delete-older-than 3d";
+      # set the nix store to clean every Monday at 3am
+      dates = "Mon *-*-* 03:00";
     };
 
     # disable usage of nix channels
@@ -147,22 +145,18 @@ in
 
       # maximum number of parallel TCP connections used to fetch imports and binary caches, 0 means no limit
       http-connections = 50;
-nix = {
-    # set the nix store to clean every Monday at 3am
-    gc.dates = "Mon *-*-* 03:00";
 
-    # automatically optimize /nix/store by removing hard links
-    optimise = {
-      automatic = true;
-      dates = [ "04:00" ];
-    };
+      # automatically optimize /nix/store by removing hard links
+      optimise = {
+        automatic = true;
+        dates = [ "04:00" ];
+      };
 
-    # Make builds run with a low priority, keeping the system fast
-    # daemonCPUSchedPolicy = "idle";
-    # daemonIOSchedClass = "idle";
-    # daemonIOSchedPriority = 7;
+      # Make builds run with a low priority, keeping the system fast
+      # daemonCPUSchedPolicy = "idle";
+      # daemonIOSchedClass = "idle";
+      # daemonIOSchedPriority = 7;
 
-    settings = {
       # the defaults to false even if the experimental feature is enabled
       # so we need to enable it here, this is also only available on linux
       # and the option is explicitly removed on darwin so we have to have this here
@@ -171,8 +165,7 @@ nix = {
       # set the build dir to /var/tmp to avoid issues on tmpfs
       # https://github.com/NixOS/nixpkgs/issues/293114#issuecomment-2663470083
       build-dir = "/var/tmp";
-    };
-  };
+
       # whether to accept nix configuration from a flake without prompting
       # littrally a CVE waiting to happen <https://x.com/puckipedia/status/1693927716326703441>
       accept-flake-config = false;
@@ -190,31 +183,6 @@ nix = {
 
       # use xdg base directories for all the nix things
       use-xdg-base-directories = true;
-    };
-
-    # set the nix store to clean every Monday at 3am
-    gc.dates = "Mon *-*-* 03:00";
-
-    # automatically optimize /nix/store by removing hard links
-    optimise = {
-      automatic = true;
-      dates = [ "04:00" ];
-    };
-
-    # Make builds run with a low priority, keeping the system fast
-    # daemonCPUSchedPolicy = "idle";
-    # daemonIOSchedClass = "idle";
-    # daemonIOSchedPriority = 7;
-
-    settings = {
-      # the defaults to false even if the experimental feature is enabled
-      # so we need to enable it here, this is also only available on linux
-      # and the option is explicitly removed on darwin so we have to have this here
-      use-cgroups = true;
-
-      # set the build dir to /var/tmp to avoid issues on tmpfs
-      # https://github.com/NixOS/nixpkgs/issues/293114#issuecomment-2663470083
-      build-dir = "/var/tmp";
     };
   };
 
