@@ -14,7 +14,6 @@
     ./system
     ./catppuccin.nix
     ./emulation.nix
-    ./extras.nix
     ./headless.nix
     ./nix.nix
   ];
