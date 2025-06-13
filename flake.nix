@@ -42,7 +42,6 @@
       type = "github";
       owner = "viperML";
       repo = "nix-maid";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # immutable config management
