@@ -21,10 +21,10 @@ let
     package
     ;
 
-  cfg = config.garden.system.boot;
+  cfg = config.grimoire.system.boot;
 in
 {
-  options.garden.system.boot = {
+  options.grimoire.system.boot = {
     enableKernelTweaks = mkEnableOption "security and performance related kernel parameters";
     recommendedLoaderConfig = mkEnableOption "tweaks for common bootloader configs per my liking";
     loadRecommendedModules = mkEnableOption "kernel modules that accommodate for most use cases";
