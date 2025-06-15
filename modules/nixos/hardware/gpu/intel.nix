@@ -6,7 +6,7 @@
 }:
 let
   inherit (lib) mkIf attrValues;
-  inherit (config.garden) device;
+  inherit (config.grimoire) device;
 in
 {
   config = mkIf (device.gpu == "intel" || device.gpu == "hybrid-nv") {
@@ -30,7 +30,7 @@ in
       };
     };
 
-    garden.packages = [ pkgs.intel-gpu-tools ];
+    grimoire.packages = [ pkgs.intel-gpu-tools ];
 
     environment.variables = mkIf (config.hardware.graphics.enable && device.gpu != "hybrid-nv") {
       VDPAU_DRIVER = "va_gl";

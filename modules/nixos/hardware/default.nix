@@ -1,6 +1,5 @@
 {
   imports = [
-    ./cloud # abstractions for specific cloud providers
     ./cpu # cpu specific options
     ./gpu # gpu specific options
     ./media # sound and video

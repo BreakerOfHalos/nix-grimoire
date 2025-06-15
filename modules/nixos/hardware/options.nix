@@ -4,7 +4,7 @@ let
   inherit (lib.types) listOf str enum;
 in
 {
-  options.garden.device = {
+  options.grimoire.device = {
     monitors = mkOption {
       type = listOf str;
       default = [ ];
@@ -18,9 +18,8 @@ in
     keyboard = mkOption {
       type = enum [
         "us"
-        "gb"
       ];
-      default = "gb";
+      default = "us";
     };
   };
 }

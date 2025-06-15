@@ -9,7 +9,7 @@ let
   MHz = x: x * 1000;
 in
 {
-  config = mkIf config.garden.profiles.laptop.enable {
+  config = mkIf config.grimoire.profiles.laptop.enable {
     # superior power management, littrally saves this crummy laptop
     # you have no clue how annoying it is when I have to update this on nixpkgs
     # if you cannot figure out what is happening here its worth reading the example

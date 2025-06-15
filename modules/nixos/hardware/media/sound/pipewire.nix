@@ -10,7 +10,7 @@ let
   inherit (self.lib) isx86Linux;
 in
 {
-  config = mkIf config.garden.profiles.graphical.enable {
+  config = mkIf config.grimoire.profiles.graphical.enable {
     # pipewire is newer and just better
     services.pipewire = {
       enable = true;

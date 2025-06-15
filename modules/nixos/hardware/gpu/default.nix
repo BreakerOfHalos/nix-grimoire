@@ -6,15 +6,13 @@ in
   imports = [
     ./amd.nix
     ./intel.nix
-    ./nvidia.nix
   ];
 
-  options.garden.device.gpu = mkOption {
+  options.grimoire.device.gpu = mkOption {
     type = types.nullOr (
       types.enum [
         "amd"
         "intel"
-        "nvidia"
       ]
     );
     default = null;

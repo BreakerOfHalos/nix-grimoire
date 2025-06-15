@@ -7,7 +7,7 @@ let
   inherit (lib) mkIf;
 in
 {
-  config = mkIf config.garden.profiles.laptop.enable {
+  config = mkIf config.grimoire.profiles.laptop.enable {
     # DBus service that provides power management support to applications.
     services.upower = {
       enable = true;

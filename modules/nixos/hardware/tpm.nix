@@ -4,10 +4,10 @@ let
   inherit (lib.types) bool;
   inherit (lib.modules) mkIf mkDefault;
 
-  inherit (config.garden) device;
+  inherit (config.grimoire) device;
 in
 {
-  options.garden.device.hasTPM = mkOption {
+  options.grimoire.device.hasTPM = mkOption {
     type = bool;
     default = false;
     description = "Whether the system has tpm support";

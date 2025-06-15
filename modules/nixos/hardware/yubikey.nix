@@ -8,11 +8,11 @@ let
   inherit (lib) mkIf mkEnableOption;
 in
 {
-  options.garden.system.yubikeySupport = {
+  options.grimoire.system.yubikeySupport = {
     enable = mkEnableOption "yubikey support";
   };
 
-  config = mkIf config.garden.system.yubikeySupport.enable {
+  config = mkIf config.grimoire.system.yubikeySupport.enable {
     hardware.gpgSmartcards.enable = true;
 
     services = {
@@ -30,7 +30,7 @@ in
     };
 
     # Yubico's official tools
-    garden.packages = {
+    grimoire.packages = {
       inherit (pkgs)
         yubikey-manager # cli
         # yubikey-manager-qt # gui

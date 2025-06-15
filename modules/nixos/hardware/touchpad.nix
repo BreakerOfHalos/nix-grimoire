@@ -3,7 +3,7 @@ let
   inherit (lib) mkIf;
 in
 {
-  config = mkIf config.garden.profiles.laptop.enable {
+  config = mkIf config.grimoire.profiles.laptop.enable {
     # Input settings for libinput
     services.libinput = {
       enable = true;

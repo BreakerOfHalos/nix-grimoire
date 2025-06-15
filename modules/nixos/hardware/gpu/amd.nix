@@ -6,7 +6,7 @@
 }:
 let
   inherit (lib.modules) mkIf;
-  inherit (config.garden) device;
+  inherit (config.grimoire) device;
 in
 {
   config = mkIf (device.gpu == "amd") {
