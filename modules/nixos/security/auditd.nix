@@ -4,10 +4,10 @@ let
   inherit (lib.options) mkOption mkEnableOption;
   inherit (lib.types) int str;
 
-  cfg = config.garden.system.security.auditd;
+  cfg = config.grimoire.system.security.auditd;
 in
 {
-  options.garden.system.security.auditd = {
+  options.grimoire.system.security.auditd = {
     enable = mkEnableOption "Enable the audit daemon";
 
     autoPrune = {

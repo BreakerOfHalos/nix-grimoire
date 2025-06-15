@@ -7,8 +7,7 @@
 let
   inherit (lib) mkIf mkDefault;
 
-  systemdCond =
-    config.garden.profiles.graphical.enable && !config.services.desktopManager.cosmic.enable;
+  systemdCond = config.grimoire.profiles.graphical.enable;
 in
 {
   # have polkit log all actions

@@ -45,7 +45,7 @@ in
       };
     }
 
-    (mkIf config.garden.profiles.graphical.enable {
+    (mkIf config.grimoire.profiles.graphical.enable {
       services = genAttrs services (_: mkService);
     })
   ];

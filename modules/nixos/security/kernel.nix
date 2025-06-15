@@ -7,10 +7,10 @@ let
     mkEnableOption
     ;
 
-  sys = config.garden.system;
+  sys = config.grimoire.system;
 in
 {
-  options.garden.system.security = {
+  options.grimoire.system.security = {
     fixWebcam = mkEnableOption "Fix the broken webcam by un-blacklisting the related kernel module.";
   };
 
