@@ -2,11 +2,11 @@
 let
   inherit (lib) mkIf mkEnableOption;
 
-  cfg = config.garden.system.networking;
+  cfg = config.grimoire.system.networking;
 in
 {
-  options.garden.system.networking.optimizeTcp = mkEnableOption "Enable tcp optimizations" // {
-    default = !config.garden.profiles.server.enable;
+  options.grimoire.system.networking.optimizeTcp = mkEnableOption "Enable tcp optimizations" // {
+    default = !config.grimoire.profiles.server.enable;
   };
 
   config = mkIf cfg.optimizeTcp {

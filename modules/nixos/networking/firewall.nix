@@ -14,7 +14,7 @@ in
     #
     # enable opensnitch firewall
     # inactive until opensnitch UI is opened
-    # services.opensnitch.enable = device.type != "server";
+    services.opensnitch.enable = device.type != "server";
 
     networking.firewall = {
       enable = true;
@@ -30,7 +30,7 @@ in
       allowedUDPPortRanges = [ ];
 
       # allow servers to be pinnged, but not our clients
-      allowPing = config.garden.profiles.server.enable;
+      allowPing = config.grimoire.profiles.server.enable;
 
       # make a much smaller and easier to read log
       logReversePathDrops = true;

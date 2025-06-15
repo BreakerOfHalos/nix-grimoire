@@ -7,7 +7,7 @@ let
     concatStringsSep
     ;
 
-  cfg = config.garden.services;
+  cfg = config.grimoire.services;
 in
 {
   # fail2ban firewall jail

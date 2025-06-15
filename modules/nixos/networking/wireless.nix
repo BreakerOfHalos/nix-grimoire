@@ -3,11 +3,11 @@ let
   inherit (lib.options) mkOption;
   inherit (lib.types) enum;
 
-  inherit (config.garden.system.networking) wirelessBackend;
+  inherit (config.grimoire.system.networking) wirelessBackend;
 in
 {
 
-  options.garden.system.networking.wirelessBackend = mkOption {
+  options.grimoire.system.networking.wirelessBackend = mkOption {
     type = enum [
       "iwd"
       "wpa_supplicant"
@@ -43,8 +43,8 @@ in
 
           General = {
             # more things that my uni hates me for
-            # AddressRandomization = "network";
-            # AddressRandomizationRange = "full";
+            AddressRandomization = "network";
+            AddressRandomizationRange = "full";
             EnableNetworkConfiguration = true;
             RoamRetryInterval = 15;
           };

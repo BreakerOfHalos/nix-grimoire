@@ -16,10 +16,9 @@ let
 
   inherit (config.services) tailscale;
 
-  cfg = config.garden.system.networking.tailscale;
+  cfg = config.grimoire.system.networking.tailscale;
 in
 {
-  options.garden.system.networking.tailscale = {
     enable = mkEnableOption "Tailscale VPN";
 
     defaultFlags = mkOption {
@@ -58,7 +57,7 @@ in
 
   config = mkIf cfg.enable {
     # make the tailscale command usable to users
-    garden.packages = { inherit (pkgs) tailscale; };
+    grimoire.packages = { inherit (pkgs) tailscale; };
 
     networking.firewall = {
       # always allow traffic from your Tailscale network

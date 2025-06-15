@@ -12,17 +12,17 @@ let
     optionalAttrs
     ;
 
-  sys = config.garden.system;
+  sys = config.grimoire.system;
 in
 {
-  garden.packages = optionalAttrs config.garden.profiles.graphical.enable {
+  grimoire.packages = optionalAttrs config.grimoire.profiles.graphical.enable {
     inherit (pkgs) networkmanagerapplet; # provides nm-connection-editor
   };
 
   networking.networkmanager = {
     enable = true;
     plugins = mkForce (
-      optionals config.garden.profiles.graphical.enable [ pkgs.networkmanager-openvpn ]
+      optionals config.grimoire.profiles.graphical.enable [ pkgs.networkmanager-openvpn ]
     );
     dns = "systemd-resolved";
     unmanaged = [
@@ -41,7 +41,7 @@ in
       backend = sys.networking.wirelessBackend;
 
       # The below is disabled as my uni hated me for it
-      # macAddress = "random"; # use a random mac address on every boot, this can scew with static ip
+      macAddress = "random"; # use a random mac address on every boot, this can scew with static ip
       powersave = true;
 
       # MAC address randomization of a Wi-Fi device during scanning
@@ -49,6 +49,6 @@ in
     };
 
     # causes server to be unreachable over SSH
-    ethernet.macAddress = mkIf (!config.garden.profiles.server.enable) "random";
+    ethernet.macAddress = mkIf (!config.grimoire.profiles.server.enable) "random";
   };
 }
