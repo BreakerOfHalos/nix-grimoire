@@ -8,7 +8,7 @@ let
 in
 {
   config = mkIf config.grimoire.profiles.graphical.enable {
-    programs = grimoire{
+    programs = {
       # we need dconf to interact with gtk
       dconf.enable = true;
 
