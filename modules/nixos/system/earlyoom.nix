@@ -8,14 +8,16 @@ let
   inherit (lib) mkIf mkForce concatStringsSep;
 
   avoid = concatStringsSep "|" [
-    "xmonad"
-    "ly"
+    "(h|H)yprland"
+    "sway"
     "Xwayland"
     "cryptsetup"
     "dbus-.*"
     "gpg-agent"
+    "greetd"
     "ssh-agent"
     ".*qemu-system.*"
+    "sddm"
     "sshd"
     "systemd"
     "systemd-.*"
