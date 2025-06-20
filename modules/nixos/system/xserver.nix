@@ -1,7 +1,7 @@
 {
-  config,
   lib,
   pkgs,
+  config,
   ...
 }:
 let
@@ -9,21 +9,11 @@ let
 in
 {
   config = mkIf config.grimoire.profiles.graphical.enable {
-    services = {
-      xserver = {
-        enable = true;
-        startDbusSession = true;
-        layout = "us";
+    services.xserver = {
+      enable = false;
+      desktopManager.xterm.enable = false;
 
-        libinput.enable = true;
-
-        displayManager.defaultSession = "none+xmonad";
-
-        windowManager.xmonad = {
-          enable = true;
-          enableContribAndExtras = true;
-        };
-      };
+      excludePackages = [ pkgs.xterm ];
     };
   };
 }

@@ -26,7 +26,7 @@ in
 {
   options.grimoire.environment.loginManager = mkOption {
     type = nullOr (enum [
-      "ly"
+      "greetd"
     ]);
     description = "The login manager to be used by the system.";
   };
@@ -34,28 +34,28 @@ in
   config = mkMerge [
     {
       grimoire.environment.loginManager = mkOptionDefault (
-        if config.grimoire.profiles.graphical.enable then "ly" else null
+        if config.grimoire.profiles.graphical.enable then "greetd" else null
       );
     }
 
-    (mkIf (cfg == "ly") {
-      services.displayManager.ly = {
+    (mkIf (cfg == "greetd") {
+      services.greetd = {
         enable = true;
         vt = 2;
         restart = true;
 
         settings = {
-          allow_empty_password = false;
-          animation = none;
-          box_title = "Welcome to Hell!";
-          clear_password = true;
-          clock = "%Y-%m-%d %H:%M:%S";
-          text_in_center = true;
-          bg = 0x0011111b;
-          border_fg = 0x00b4befe;
-          error_bg = 0x0011111b;
-          error_fg = 0x01f38ba;
-          fg = 0x001e1e2e;
+          default_session = {
+            user = "greeter";
+            command = concatStringsSep " " [
+              (getExe pkgs.greetd.tuigreet)
+              "--time"
+              "--remember"
+              "--remember-user-session"
+              "--asterisks"
+              "--sessions '${sessionPath}'"
+            ];
+          };
         };
       };
     })
