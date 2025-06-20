@@ -113,6 +113,68 @@
       repo = "treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    
+    ### hyprland ecosystem
+    hyprland = {
+      type = "github";
+      owner = "hyprwm";
+      repo = "hyprland";
+    };
+
+    hypridle = {
+      type = "github";
+      owner = "hyprwm";
+      repo = "hypridle";
+
+      inputs = {
+        hyprlang.follows = "hyprland/hyprlang";
+        hyprutils.follows = "hyprland/hyprutils";
+        nixpkgs.follows = "hyprland/nixpkgs";
+        systems.follows = "hyprland/systems";
+      };
+    };
+    
+    hyprland-contrib = {
+      type = "github";
+      owner = "hyperwm";
+      repo = "contrib";
+      inputs.nixpkgs.follows = "hyprland/nixpkgs";
+    };
+
+    hyprland-plugins = {
+      type = "github";
+      owner = "hyprwm";
+      repo = "hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
+
+    hyprlock = {
+      type = "github";
+      owner = "hyprwm";
+      repo = "hyprlock";
+
+      inputs = {
+        hyprgraphics = "hyprland/hyprgraphics";
+        hyprlang.follows = "hyprland/hyprlang";
+        hyprutils.follows = "hyprland/hyprutils";
+        nixpkgs.follows = "hyprland/nixpkgs";
+        systems.follows = "hyprland/systems";
+      };
+    };
+
+    hyprpaper = {
+      type = "github";
+      owner = "hyprwm";
+      repo = "hyprpaper";
+
+      inputs = {
+        hyprgraphics.follows = "hyprland/hyprgraphics";
+        hyprlang.follows = "hyprland/hyprlang";
+        hyprutils.follows = "hyprland/hyprutils";
+        nixpkgs.follows = "hyprland/nixpkgs";
+        systems.follows = "hyprland/systems";
+      };
+    };
 
     ### misc
     # declarative theme management
@@ -127,6 +189,13 @@
       type = "github";
       owner = "nix-systems";
       repo = "default";
+    };
+    
+    zen-browser = {
+      type = "github";
+      owner = "youwen5";
+      repo = "zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 }
