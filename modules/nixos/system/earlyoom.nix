@@ -8,7 +8,8 @@ let
   inherit (lib) mkIf mkForce concatStringsSep;
 
   avoid = concatStringsSep "|" [
-    "(h|H)yprland"
+    "niri"
+    "alacritty"
     "sway"
     "Xwayland"
     "cryptsetup"

@@ -9,6 +9,7 @@
     ./firmwares.nix # firmwares
     ./fs.nix # filesystem tools
     ./options.nix # options to set the cpu and gpu
+    ./touchpad.nix
     ./tpm.nix # Trusted Platform Module
     ./yubikey.nix # yubikey device support and management tools
   ];

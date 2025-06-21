@@ -2,7 +2,7 @@
   _class = "nixos";
 
   imports = [
-    ../base
+    ../generic
 
     ./boot
     ./environment
@@ -12,9 +12,12 @@
     ./security
     ./services
     ./system
+    ./users
     ./catppuccin.nix
-    ./emulation.nix
+    ./extras.nix
     ./headless.nix
     ./nix.nix
+    ./programs.nix
+    ./secrets.nix
   ];
 }

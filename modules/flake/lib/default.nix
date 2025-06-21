@@ -30,7 +30,7 @@ let
     inherit (final.programs) mkProgram;
     inherit (final.secrets) mkUserSecret mkSystemSecret;
     inherit (final.services) mkGraphicalService mkHyprlandService mkServiceOption;
-    inherit (final.validators) ifTheyExist;
+    inherit (final.validators) ifTheyExist anyHome;
   });
 
   # we need to extend gardenLib with the nixpkgs lib to get the full set of functions
