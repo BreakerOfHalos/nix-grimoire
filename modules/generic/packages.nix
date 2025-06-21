@@ -22,8 +22,8 @@ in
       environment.systemPackages = builtins.attrValues config.grimoire.packages;
     })
 
-    (optionalAttrs (_class == "maid") {
-      maid.packages = builtins.attrValues config.grimoire.packages;
+    (optionalAttrs (_class == "homeManager") {
+      home.packages = builtins.attrValues config.grimoire.packages;
     })
   ];
 }
