@@ -19,7 +19,10 @@ in
       "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
     };
 
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    extraPortals = [ 
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-gnome
+   ];
 
     wlr = {
       enable = mkDefault config.grimoire.profiles.graphical.enable;

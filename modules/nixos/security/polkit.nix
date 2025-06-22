@@ -36,7 +36,10 @@ in
         TimeoutStopSec = 10;
       };
 
-      wantedBy = [ "graphical-session.target" ];
+      wantedBy = [ 
+        "graphical-session.target"
+        "niri.service"
+      ];
       wants = [ "graphical-session.target" ];
       after = [ "graphical-session.target" ];
     };

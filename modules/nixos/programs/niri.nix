@@ -11,19 +11,13 @@ let
   cfg = config.grimoire.programs.niri;
 in
 {
-  imports = [inputs.niri.nixosModules.niri];
-  
   options.grimoire.programs.niri = {
     enable = mkEnableOption "Enable niri window manager";
   };
   
   config = mkIf cfg.enable {
-    niri-flake.cache.enable = true;
-    nixpkgs.overlays  = [inputs.niri.overlays.niri];
+    programs.niri.enable = true;
 
-    programs.niri = {
-      enable = false;
-      package = pkgs.niri-unstable;
-    };
+    grimoire.environment.loginManager = "greetd";
   };
 } 
