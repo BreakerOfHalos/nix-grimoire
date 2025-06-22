@@ -18,6 +18,8 @@ in
   config = mkIf cfg.enable {
     programs.niri.enable = true;
 
+    grimoire.packages = inherit (pkgs) { xwayland-satellite; };
+
     grimoire.environment.loginManager = "greetd";
   };
 } 
