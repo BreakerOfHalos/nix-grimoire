@@ -38,10 +38,17 @@
     };
 
     # manage userspace with nix
-    home-manager = {
+    nix-maid = {
       type = "github";
-      owner = "nix-community";
-      repo = "home-manager";
+      owner = "viperML";
+      repo = "nix-maid";
+    };
+
+    # immutable config management
+    wrapper-manager = {
+      type = "github";
+      owner = "viperML";
+      repo = "wrapper-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
